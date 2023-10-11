@@ -1,21 +1,21 @@
 import type { ZodError } from "zod";
 
 export type ErrorResponse = {
-    message: string;
+	message: string;
 };
 
 export type ZodResponse = {
-    errors: ZodError;
+	errors: ZodError;
 };
 
 export type SignupResponse =
-    | ErrorResponse
-    | ZodResponse
-    | { message: "Created Sucefully" };
+	| ErrorResponse
+	| ZodResponse
+	| { message: "Created Sucefully" };
 
 export type LoginResponse =
-    | ErrorResponse
-    | ZodResponse
-    | { message: "Logged Sucefully"; token: string };
+	| ErrorResponse
+	| ZodResponse
+	| { message: "Logged Sucefully"; token: string };
 
 export type ApiResponse = ErrorResponse;
