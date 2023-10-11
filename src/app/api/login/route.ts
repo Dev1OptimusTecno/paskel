@@ -13,7 +13,14 @@ export const POST = withErrorHandling(async (request: Request) => {
 			username: body.username,
 		},
 	});
-	if (!user) return new NextResponse("User not found", { status: 400 });
+	if (!user)
+		return NextResponse.json(
+			{
+				type: "Username",
+				message: "Invalid password or username",
+			},
+			{ status: 400 },
+		);
 	const hashedPassword = await hash(body.password, user.salt);
 	if (hashedPassword != user.password)
 		return NextResponse.json(

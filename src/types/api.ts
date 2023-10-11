@@ -9,13 +9,27 @@ export type ZodResponse = {
 };
 
 export type SignupResponse =
-	| ErrorResponse
-	| ZodResponse
-	| { message: "Created Sucefully" };
+	| {
+			errors: ZodError;
+			message: undefined;
+	  }
+	| {
+			message: string;
+			errors: undefined;
+	  }
+	| { message: "Logged Sucefully"; errors: undefined };
 
 export type LoginResponse =
-	| ErrorResponse
-	| ZodResponse
-	| { message: "Logged Sucefully"; token: string };
+	| {
+			errors: ZodError;
+			message: undefined;
+			token: undefined;
+	  }
+	| {
+			message: string;
+			errors: undefined;
+			token: undefined;
+	  }
+	| { message: "Logged Sucefully"; token: string; errors: undefined };
 
 export type ApiResponse = ErrorResponse;
