@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 			password: hashedPassword,
 			username: body.username,
 			salt,
-			verified: false
+			verified: false,
 		},
 	});
 	return NextResponse.json(

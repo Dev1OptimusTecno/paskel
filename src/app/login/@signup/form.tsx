@@ -5,7 +5,14 @@ import { CardContent, CardFooter } from "@/components/ui/card";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
+} from "@/components/ui/form";
 import { userScheme as formSchema } from "@/schemas";
 import { API_URL } from "@/utils/envs";
 import { SignupResponse } from "@/types/api";
@@ -23,9 +30,9 @@ export const SignupForm = () => {
 	});
 	async function onSubmit(values: z.infer<typeof formSchema>, event: any) {
 		event.preventDefault();
-		var response ;
+		var response;
 		try {
-			response = await fetch('/api/signup', {
+			response = await fetch("/api/signup", {
 				method: "POST",
 				body: JSON.stringify({
 					username: values.username,
@@ -36,7 +43,7 @@ export const SignupForm = () => {
 				},
 			});
 		} catch (error) {
-			return window.alert(error)
+			return window.alert(error);
 		}
 		const data: SignupResponse = await response.json();
 		if (response.status == 400 && data.errors) {

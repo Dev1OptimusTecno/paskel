@@ -52,7 +52,7 @@ export const LoginForm = () => {
 			});
 		} else {
 			if (response.status == 200 && data.token) {
-				localStorage.setItem('token', data.token)
+				localStorage.setItem("token", data.token);
 				router.push("/app");
 			}
 		}
@@ -96,7 +96,7 @@ export const LoginForm = () => {
 												{...field}
 											/>
 										</FormControl>
-										<FormMessage/>
+										<FormMessage />
 									</FormItem>
 								</div>
 							);
